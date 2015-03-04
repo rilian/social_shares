@@ -1,10 +1,10 @@
 module SocialShares
-  class Twitter < Base
-    URL = 'http://cdn.api.twitter.com/1/urls/count.json'
+  class Buffer < Base
+    URL = 'https://api.bufferapp.com/1/links/shares.json'
 
     def shares!
       response = RestClient.get(URL, {:params => {:url => checked_url}})
-      JSON.parse(response)['count']
+      JSON.parse(response)['shares']
     end
   end
 end
